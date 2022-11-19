@@ -13,4 +13,4 @@ use App\Http\Controllers\TodoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('/todos',[TodoController::class,'index']);
+Route::resource('todos',TodoController::class);
