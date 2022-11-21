@@ -302,22 +302,43 @@
   </style>
 </head>
 <body>
-<div class="container">
+  <div class="container">
     <div class="card">
       <p class="title mb-15">Todo List</p>
             <div class="todo">
-        <form action="/todo/create" method="post" class="flex between mb-30">
-          <input type="hidden" name="_token" value="3MOGvNylV3yGTxO5VHJoseuB60ubHifylw1nqUmo">
+        <form action="/create" method="post" class="flex between mb-30">
+          <input type="hidden" name="_token" value="">
+          <input type="text" class="input-add" name="content">
           <input class="button-add" type="submit" value="追加">
         </form>
+
         <table>
-          <tbody><tr>
-            <th>作成日</th>
-            <th>タスク名</th>
-            <th>更新</th>
-            <th>削除</th>
-          </tr>
-                  </tbody></table>
+          <tbody>
+            <tr>
+              <th>作成日</th>
+              <th>タスク名</th>
+              <th>更新</th>
+              <th>削除</th>
+            </tr>
+            <tr>
+              <td>
+              </td>
+              <form action="/update" method="post"></form>
+                <input type="hidden" name="_token" value="">
+                <td>
+                  <input type="text" class="input-update" value="" name="content">
+                </td>
+                <td>
+                  <button class="button-update">更新</button>
+                </td>
+                <td>
+                  <form action="/detele" method="post">
+                    <input type="hidden" name="_token" value="">
+                    <button class="button-delete">削除</button>
+                  </form>
+                </td>
+            </tr>
+          </tbody>
       </div>
     </div>
   </div>
