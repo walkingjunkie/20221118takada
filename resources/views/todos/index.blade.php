@@ -301,14 +301,15 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="card">
       <p class="title mb-15">Todo List</p>
-            <div class="todo">
+      <div class="todo">
         <form action="/create" method="post" class="flex between mb-30">
-          <input type="hidden" name="_token" value="">
-          <input type="text" class="input-add" name="content">
+          @csrf
+          <input type="text" class="input-add" name="name">
           <input class="button-add" type="submit" value="追加">
         </form>
 
@@ -323,17 +324,18 @@
             <tr>
               <td>
               </td>
-              <form action="/update" method="post"></form>
-                <input type="hidden" name="_token" value="">
+              <form action="/update" method="post">
+                @csrf
                 <td>
                   <input type="text" class="input-update" value="" name="content">
                 </td>
                 <td>
                   <button class="button-update">更新</button>
+              </from>
                 </td>
                 <td>
                   <form action="/detele" method="post">
-                    <input type="hidden" name="_token" value="">
+                    @csrf
                     <button class="button-delete">削除</button>
                   </form>
                 </td>

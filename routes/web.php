@@ -14,6 +14,6 @@ use App\Http\Controllers\TodoController;
 |
 */
 Route::get('/',[TodoController::class,'index']);
-Route::post('/',[TodoController::class,'create']);
-Route::post('/',[TodoController::class,'edit']);
-Route::post('/',[TodoController::class,'destry']);
+Route::post('/create',[TodoController::class,'create']);
+Route::post('/edit',[TodoController::class,'edit']);
+Route::post('/delete',[TodoController::class,'destry']);

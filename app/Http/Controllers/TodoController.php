@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TodoRequest;
+use App\Models\Todo;
 
 class TodoController extends Controller
 {
@@ -19,12 +21,12 @@ class TodoController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response()
      */
     public function create()
     {
         //
-        
+
     }
 
     /**
