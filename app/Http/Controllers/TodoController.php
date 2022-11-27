@@ -25,9 +25,9 @@ class TodoController extends Controller
      */
     public function create(Request $request)
     {
-    $new_todo = new todo();
-    $form = $request->all()
-    unset($form['_token'];
+    $todo = new todo;
+    $form = $request->all();
+    unset($form['_token']);
     return redirect('/');
 
     }
