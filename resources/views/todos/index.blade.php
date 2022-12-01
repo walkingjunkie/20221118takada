@@ -312,8 +312,10 @@
           <input type="text" class="input-add" name="name">
           <input class="button-add" type="submit" value="追加">
         </form>
+        
 
         <table>
+          @if ($todos -> isNotEmpty())
           <tbody>
             <tr>
               <th>作成日</th>
@@ -321,8 +323,10 @@
               <th>更新</th>
               <th>削除</th>
             </tr>
+              @foreach($todos as $item)
             <tr>
               <td>
+                <div>{{$item->name}}</div>
               </td>
               <form action="/update" method="post">
                 @csrf
@@ -340,8 +344,10 @@
                   </form>
                 </td>
             </tr>
+            @endforeach
           </tbody>
       </div>
     </div>
   </div>
 </body>
+@endif

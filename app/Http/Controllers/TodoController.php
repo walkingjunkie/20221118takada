@@ -15,7 +15,8 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return view('todos.index');
+        $todos=Todo::all();
+        return view('todos.index',['Todo'=>'$todos']);
     }
 
     /**
@@ -28,7 +29,7 @@ class TodoController extends Controller
     $todo = new todo;
     $form = $request->all();
     unset($form['_token']);
-    $todo -> save();
+    $todo -> fill($form)->save();
     return redirect('/');
 
     }
