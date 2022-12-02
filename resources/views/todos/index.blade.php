@@ -315,7 +315,7 @@
         
 
         <table>
-          @if ($todos -> isNotEmpty())
+          @if ($todo -> isNotEmpty())
           <tbody>
             <tr>
               <th>作成日</th>
@@ -323,10 +323,11 @@
               <th>更新</th>
               <th>削除</th>
             </tr>
-              @foreach($todos as $item)
+              @foreach($todo as $todos)
             <tr>
               <td>
-                <div>{{$item->name}}</div>
+                    <td>{{$todos->id}}</td>
+                    <td>{{$todos->name}}</td>
               </td>
               <form action="/update" method="post">
                 @csrf
@@ -344,7 +345,7 @@
                   </form>
                 </td>
             </tr>
-            @endforeach
+              @endforeach
           </tbody>
       </div>
     </div>
