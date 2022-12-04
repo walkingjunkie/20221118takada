@@ -321,7 +321,7 @@
               <th>更新</th>
               <th>削除</th>
             </tr>
-              @foreach((array)$todo as $items)
+              @foreach($items as $todo)
             <tr>
               <td>
               <div>{{$items->name}}</div>
