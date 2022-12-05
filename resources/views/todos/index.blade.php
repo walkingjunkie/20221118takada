@@ -321,10 +321,10 @@
               <th>更新</th>
               <th>削除</th>
             </tr>
-              @foreach($items as $todo)
+              @foreach($todos as $todo)
             <tr>
               <td>
-              <div>{{$items->name}}</div>
+              <div>{{$todo->name}}</div>
               </td>
               <form action="/update" method="post">
                 @csrf
