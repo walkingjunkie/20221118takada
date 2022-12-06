@@ -324,7 +324,7 @@
               @foreach($todos as $todo)
             <tr>
               <td>
-              <div>{{$todo->name}}</div>
+              <div>{{$todo -> name}}</div>
               </td>
               <form action="/update" method="post">
                 @csrf
