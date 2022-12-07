@@ -326,7 +326,7 @@
               <td>
                 <div>{{$todo -> created_at}}</div>
               </td>
-              <form action="/update" method="post">
+              <form action="/edit" method="post">
                 @csrf
                 <td>
                   <input type="text" class="input-update" value="{{$todo -> name}}" name="content">

@@ -62,9 +62,13 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $todo=todo::find($request->id,'name');
+        $todo->name = $form =$request->input('name');
+        unset($form['_token']);
+        $todo -> fill($form)->save();
+        return redirect('/');
     }
 
     /**
