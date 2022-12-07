@@ -326,17 +326,17 @@
               <td>
                 <div>{{$todo -> created_at}}</div>
               </td>
-              <form action="/edit" method="post">
-                @csrf
                 <td>
                   <input type="text" class="input-update" value="{{$todo -> name}}" name="content">
                 </td>
                 <td>
+              <form action="/edit" method="post">
+                @csrf
                   <button class="button-update">更新</button>
               </from>
                 </td>
                 <td>
-                  <form action="/detele" method="post">
+                  <form action="/delete" method="post">
                     @csrf
                     <button class="button-delete">削除</button>
                   </form>

@@ -64,11 +64,11 @@ class TodoController extends Controller
      */
     public function edit(Request $request)
     {
-        $todo=todo::find($request->id,'name');
-        $todo->name = $form =$request->input('name');
-        unset($form['_token']);
-        $todo -> fill($form)->save();
-        return redirect('/');
+    $todo=todo::find($request->id);
+    $form = $request->all();
+    unset($form['_token']);
+    todo::where('id',$request->name)->update($form);
+    return redirect('/');
     }
 
     /**
@@ -91,6 +91,9 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+    $todo=todo::find($request->id);
+    return view('delete', ['todos' => $todos]);
+    todo::find($request->id)->delete();
+    return redirect('/');
     }
 }
