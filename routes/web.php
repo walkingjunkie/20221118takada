@@ -17,5 +17,5 @@ Route::get('/',[TodoController::class,'index']);
 Route::post('/create',[TodoController::class,'create']);
 Route::get('/edit',[TodoController::class,'edit']);
 Route::post('/edit',[TodoController::class,'edit']);
-Route::get('/delete',[TodoController::class,'destry']);
-Route::post('/delete',[TodoController::class,'destry']);
+Route::get('/delete',[TodoController::class,'destroy']);
+Route::post('/delete',[TodoController::class,'destroy']);
