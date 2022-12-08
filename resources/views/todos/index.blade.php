@@ -338,7 +338,7 @@
                 <td>
                   <form action="/delete" method="post">
                     @csrf
-                    <input type="hidden" class="input-delete" value="" name="name">
+                    <input type="hidden" class="input-delete" value="{{$todo -> id}}" name="id">
                     <button class="button-delete">削除</button>
                   </form>
                 </td>
