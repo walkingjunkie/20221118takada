@@ -338,6 +338,7 @@
                 <td>
                   <form action="/delete" method="post">
                     @csrf
+                    <input type="hidden" class="input-delete" value="" name="name">
                     <button class="button-delete">削除</button>
                   </form>
                 </td>

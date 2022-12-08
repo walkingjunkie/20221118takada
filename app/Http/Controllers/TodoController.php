@@ -15,7 +15,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos=todo::all();
+        $todos=Todo::all();
         return view('todos.index',['todos'=>$todos]);
     }
 
@@ -64,11 +64,8 @@ class TodoController extends Controller
      */
     public function edit(Request $request)
     {
-    $todo=todo::find($request->id);
-    $form = $request->all();
-    unset($form['_token']);
-    todo::where('name',$request->name)->update($form);
-    return redirect('/');
+    $todo=Todo::find($request->id);
+    return view('todos.index',['todos'=>$todo]);
     }
 
     /**
@@ -78,9 +75,12 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+    $form = $request->all();
+    unset($form['_token']);
+    Todo::where('name',$request->name)->update($form);
+    return redirect('/');
     }
 
     /**
@@ -89,10 +89,10 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
     $todo=todo::find($request->id);
-    todo::find($request->id)->delete();
+    Todo::find($request->id)->delete();
     return redirect('/');
     }
 }
