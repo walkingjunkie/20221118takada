@@ -337,7 +337,7 @@
               </from>
                 </td>
                 <td>
-                  <form action="/delete/{{$todo->id}}" method="post">
+                  <form action="{{route('todo.index',['id'=>$todo->id]}" method="post">
                     @csrf
                     <button class="button-delete">削除</button>
                   </form>
