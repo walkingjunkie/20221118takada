@@ -324,7 +324,7 @@
               @foreach($todos as $todo)
             <tr>
               <td>
-                <div>{{$todo -> created_at}}</div>
+                <div>{{$todo -> created_at}}<br>{{$todo -> id}}</div>
               </td>
               <form action="/edit" method="post">
                 @csrf
@@ -332,13 +332,13 @@
                   <input type="text" class="input-update" value="{{$todo -> name}}" name="name">
                 </td>
                 <td>
+                  <input type="hidden" class="input-update_hidden" value="{{$todo -> id}}" name="id">
                   <button class="button-update">更新</button>
               </from>
                 </td>
                 <td>
-                  <form action="/delete" method="post">
+                  <form action="/delete/{{$todo->id}}" method="post">
                     @csrf
-                    <input type="hidden" class="input-delete" value="{{$todo -> id}}" name="id">
                     <button class="button-delete">削除</button>
                   </form>
                 </td>
