@@ -337,13 +337,14 @@
               </from>
                 </td>
                 <td>
-                  <form action="{{route('todo.index',['id'=>$todo->id]}" method="post">
+                  <form action="/delete" method="post">
                     @csrf
+                    <input type="hidden" class="input-delete_hidden" value="{{$todo -> id}}" name="id">
                     <button class="button-delete">削除</button>
                   </form>
+                  @endforeach
                 </td>
             </tr>
-              @endforeach
           </tbody>
       </div>
     </div>
