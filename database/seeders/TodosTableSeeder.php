@@ -16,8 +16,6 @@ class TodosTableSeeder extends Seeder
     {
 DB::table('Todos')->insert([
     "name"=>"test",
-    "created_at" => timestamp(),
-    "updated_at" => timestamp(),
 ]);
     }
 }

@@ -91,7 +91,18 @@ class TodoController extends Controller
      */
     public function destroy(Request $request)
     {
-    Todo::find('id',$request->$id)->delete();
-    return redirect('/');
+    $todo=Todo::find($request->$id);
+    return view('todos.index',['todos'=>$todo]);
     }
-}
+
+
+
+    public function remove (Request $request)
+    {
+    $from=$request->all();
+    unset($from['_token']);
+    Todo::where('id',$request->id)->delete();
+    return redirect('/');
+        }
+
+    }
