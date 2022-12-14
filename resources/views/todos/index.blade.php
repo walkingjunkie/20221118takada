@@ -336,13 +336,14 @@
                   <button class="button-update">更新</button>
               </from>
                 </td>
-                <td>
-                  <form action=/delete method="post" >
-                    @csrf
-                    <button class="button-delete">削除</button>
-                  </form>
-                  @endforeach
-                </td>
+              <form action=/delete method="post" >
+              @csrf
+              <td>
+                  <input type="hidden" class="input-delete_hidden" value="{{$todo -> id}}" name="id">
+                  <button class="button-delete">削除</button>
+              </td>
+                </form>
+              @endforeach
             </tr>
           </tbody>
       </div>
