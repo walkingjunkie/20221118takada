@@ -337,9 +337,8 @@
               </from>
                 </td>
                 <td>
-                  <form action="/delete" method="post">
+                  <form action="{{route('delete',['id'=>$todo->id]) }}" method="post" >
                     @csrf
-                    <input type="hidden" class="input-delete_hidden" value="{{$todo -> id}}" name="id">
                     <button class="button-delete">削除</button>
                   </form>
                   @endforeach

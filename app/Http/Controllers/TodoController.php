@@ -89,20 +89,9 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(TodoRequest $request)
     {
-    $todo=Todo::find($request->$id);
-    return view('todos.index',['todos'=>$todo]);
-    }
-
-
-
-    public function remove (Request $request)
-    {
-    $from=$request->all();
-    unset($from['_token']);
-    Todo::where('id',$request->id)->delete();
+    Todo::find($request->id)->delete();
     return redirect('/');
-        }
-
     }
+}
