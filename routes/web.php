@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use resources\views\todos\index;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,5 @@ use App\Http\Controllers\TodoController;
 */
 Route::get('/',[TodoController::class,'index']);
 Route::post('/create',[TodoController::class,'create']);
-Route::get('/edit',[TodoController::class,'edit']);
 Route::post('/edit',[TodoController::class,'update']);
-Route::post('/delete', [TodoController::class, 'destroy']);
+Route::post('/delete', [TodoController::class,'destroy']);
