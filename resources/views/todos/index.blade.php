@@ -307,6 +307,15 @@
     <div class="card">
       <p class="title mb-15">Todo List</p>
       <div class="todo">
+                  @error('name')
+          <ul>
+            <li>
+          <div class="error_message">
+            <p>{{$message}}</p>
+          </div>
+          </li>
+          </ul>
+          @enderror
         <form action="/create" method="post" class="flex between mb-30">
           @csrf
           <input type="text" class="input-add" name="name">

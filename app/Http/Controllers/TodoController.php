@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
+use Illuminate\Support\Facades\Validator;
 
 class TodoController extends Controller
 {
@@ -24,14 +25,17 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response()
      */
-    public function create(TodoRequest $request)
+    public function create(Request $request)
     {
+    $rules = [
+    'name' => 'required|max:20',];
+    $messages = ['required' => 'タスクを入力してください。', 'max' => 'タスクは20文字以内で入力してください。'];
+    Validator::make($request->all(), $rules, $messages)->validate();
     $todo = new todo;
     $form = $request->all();
     unset($form['_token']);
     $todo -> fill($form)->save();
     return redirect('/');
-
     }
 
     /**
@@ -75,6 +79,11 @@ class TodoController extends Controller
      */
     public function update(Request $request)
     {
+    $rules = [
+    'name' => 'required|max:20',];
+    $messages = ['required' => 'タスクを入力してください。', 'max' => 'タスクは20文字以内で入力してください。'];
+    Validator::make($request->all(), $rules, $messages)->validate();
+    
     $todo=Todo::find($request->id);
     $todo->name = $request->input('name');
     $todo->save();
